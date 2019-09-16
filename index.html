@@ -272,7 +272,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2019/09/16/TCP-UDP/" class="post-title-link" itemprop="url">TCP-UUDP</a>
+            <a href="/2019/09/16/TCP-UDP/" class="post-title-link" itemprop="url">TCP-UDP</a>
           
         </h1>
 
@@ -287,7 +287,7 @@
                 
               
 
-              <time title="创建时间：2019-09-16 19:19:42 / 修改时间：20:14:59" itemprop="dateCreated datePublished" datetime="2019-09-16T19:19:42+08:00">2019-09-16</time>
+              <time title="创建时间：2019-09-16 19:19:42 / 修改时间：20:59:37" itemprop="dateCreated datePublished" datetime="2019-09-16T19:19:42+08:00">2019-09-16</time>
             </span>
           
             
@@ -306,17 +306,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>###TCP和UDP是传输层的两个协议</p>
-<p>####区别：<br>1.TCP是面对连接的，UDP是面对无连接的（发送数据之前不需要先建立连接)</p>
-<p>*Q:什么是面向连接，什么是面向无连接？</p>
-<p>*A:在互通之前，面向连接的协议会先建立连接，如TCP有三次握手，而UDP没有。</p>
-<p>2.TCP提供可靠的服务，而UDP是不可靠的。</p>
-<p>*Q：TCP为什么是可靠连接？</p>
-<p>*A：通过TCP连接传输的数据无差错、不丢失、不重复且按顺序到达。<br>    TCP报文头里的序号能使TCP数据按序到达。<br>    报文头里面的确认序号能保证不丢包，累计确认及超时重传机制。<br>    TCP拥有流量控制及拥塞控制的机制。</p>
-<p>3.TCP面向字节流，UDP面向报文。</p>
-<p>4.TCP只能一对一，UDP支持1对1，1对多。</p>
-<p>5.TCP的首部较大为20字节，而UDP只有8字节。</p>
-<p>####TCP的三次握手<br><a href="http://pxx9k2vy6.bkt.clouddn.com/Snipaste_2019-09-16_20-12-15.png" target="_blank" rel="noopener">http://pxx9k2vy6.bkt.clouddn.com/Snipaste_2019-09-16_20-12-15.png</a></p>
+          <p><strong>TCP和UDP是传输层的两个协议</strong></p>
+<h4 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h4><h6 id="1-TCP是面对连接的，UDP是面对无连接的（发送数据之前不需要先建立连接"><a href="#1-TCP是面对连接的，UDP是面对无连接的（发送数据之前不需要先建立连接" class="headerlink" title="1.TCP是面对连接的，UDP是面对无连接的（发送数据之前不需要先建立连接)"></a>1.TCP是面对连接的，UDP是面对无连接的（发送数据之前不需要先建立连接)</h6><ul>
+<li><p>Q:什么是面向连接，什么是面向无连接？</p>
+</li>
+<li><p>A:在互通之前，面向连接的协议会先建立连接，如TCP有三次握手，而UDP没有。**</p>
+</li>
+</ul>
+<h6 id="2-TCP提供可靠的服务，而UDP是不可靠的。"><a href="#2-TCP提供可靠的服务，而UDP是不可靠的。" class="headerlink" title="2. TCP提供可靠的服务，而UDP是不可靠的。"></a>2. TCP提供可靠的服务，而UDP是不可靠的。</h6><ul>
+<li><p>Q: TCP为什么是可靠连接？</p>
+</li>
+<li><p>A：通过TCP连接传输的数据无差错、不丢失、不重复且按顺序到达。<br>  TCP报文头里的序号能使TCP数据按序到达。<br>  报文头里面的确认序号能保证不丢包，累计确认及超时重传机制。<br>  TCP拥有流量控制及拥塞控制的机制。</p>
+</li>
+</ul>
+<h6 id="3-TCP面向字节流，UDP面向报文。"><a href="#3-TCP面向字节流，UDP面向报文。" class="headerlink" title="3. TCP面向字节流，UDP面向报文。"></a>3. TCP面向字节流，UDP面向报文。</h6><h6 id="4-TCP只能一对一，UDP支持1对1，1对多。"><a href="#4-TCP只能一对一，UDP支持1对1，1对多。" class="headerlink" title="4. TCP只能一对一，UDP支持1对1，1对多。"></a>4. TCP只能一对一，UDP支持1对1，1对多。</h6><h6 id="5-TCP的首部较大为20字节，而UDP只有8字节。"><a href="#5-TCP的首部较大为20字节，而UDP只有8字节。" class="headerlink" title="5.  TCP的首部较大为20字节，而UDP只有8字节。"></a>5.  TCP的首部较大为20字节，而UDP只有8字节。</h6><h4 id="TCP的三次握手"><a href="#TCP的三次握手" class="headerlink" title="TCP的三次握手"></a>TCP的三次握手</h4><h6 id="在TCP-IP协议中，TCP协议提供可靠的链接服务，采用三次握手来建立一个连接。"><a href="#在TCP-IP协议中，TCP协议提供可靠的链接服务，采用三次握手来建立一个连接。" class="headerlink" title="在TCP/IP协议中，TCP协议提供可靠的链接服务，采用三次握手来建立一个连接。"></a>在TCP/IP协议中，TCP协议提供可靠的链接服务，采用三次握手来建立一个连接。</h6><ol>
+<li><p>第一次握手：建立连接时，客户端发送syn包（syn=j）到服务器，并进入SYN_SENT状态，等待服务器确认；SYN：同步序列编号（Synchronize Sequence Numbers）。</p>
+</li>
+<li><p>第二次握手：服务器收到syn包，必须确认客户的SYN（ack=j+1），同时自己也发送一个SYN包（syn=k），即SYN+ACK包，此时服务器进入SYN_RECV状态；</p>
+</li>
+<li><p>第三次握手：客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK(ack=k+1），此包发送完毕，客户端和服务器进入ESTABLISHED（TCP连接成功）状态，完成三次握手。</p>
+<img src="http://pxx9k2vy6.bkt.clouddn.com/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.png">
+
+</li>
+</ol>
+<h4 id="TCP四次挥手"><a href="#TCP四次挥手" class="headerlink" title="TCP四次挥手"></a>TCP四次挥手</h4><img src="http://pxx9k2vy6.bkt.clouddn.com/%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B.png">
 
         
       
