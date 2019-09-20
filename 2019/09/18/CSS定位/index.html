@@ -10,6 +10,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 3.9.0">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
@@ -19,6 +36,8 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
 
 
 <script id="hexo-configurations">
@@ -55,13 +74,13 @@
   };
 </script>
 
-  <meta name="description" content="在CSS中,position属性用于定义元素的定位模式，语法为选择器{position: 属性值}position属性的常用值：    一、静态定位—所有元素的默认定位方式，position取值为static.静态定位唯一的用处就是来取消定位。####二、相对定位—将元素相对于它在标准流中的位置进行定位，position取值为relative.对元素进行相对定位之后，可以通过边偏移属性改变元素的位">
+  <meta name="description" content="在CSS中,position属性用于定义元素的定位模式，语法为选择器{position: 属性值}position属性的常用值：">
 <meta name="keywords" content="定位的分类">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS定位">
 <meta property="og:url" content="http://yoursite.com/2019/09/18/CSS定位/index.html">
 <meta property="og:site_name" content="Emmroll&#39;s Blog">
-<meta property="og:description" content="在CSS中,position属性用于定义元素的定位模式，语法为选择器{position: 属性值}position属性的常用值：    一、静态定位—所有元素的默认定位方式，position取值为static.静态定位唯一的用处就是来取消定位。####二、相对定位—将元素相对于它在标准流中的位置进行定位，position取值为relative.对元素进行相对定位之后，可以通过边偏移属性改变元素的位">
+<meta property="og:description" content="在CSS中,position属性用于定义元素的定位模式，语法为选择器{position: 属性值}position属性的常用值：">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://pxx9k2vy6.bkt.clouddn.com/%E5%AE%9A%E4%BD%8D%E5%B1%9E%E6%80%A7.png">
 <meta property="og:image" content="http://pxx9k2vy6.bkt.clouddn.com/%E6%B5%AE%E5%8A%A8%E5%AE%9A%E4%BD%8D.png">
@@ -71,7 +90,7 @@
 <meta property="og:updated_time" content="2019-09-19T06:37:58.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS定位">
-<meta name="twitter:description" content="在CSS中,position属性用于定义元素的定位模式，语法为选择器{position: 属性值}position属性的常用值：    一、静态定位—所有元素的默认定位方式，position取值为static.静态定位唯一的用处就是来取消定位。####二、相对定位—将元素相对于它在标准流中的位置进行定位，position取值为relative.对元素进行相对定位之后，可以通过边偏移属性改变元素的位">
+<meta name="twitter:description" content="在CSS中,position属性用于定义元素的定位模式，语法为选择器{position: 属性值}position属性的常用值：">
 <meta name="twitter:image" content="http://pxx9k2vy6.bkt.clouddn.com/%E5%AE%9A%E4%BD%8D%E5%B1%9E%E6%80%A7.png">
   <link rel="canonical" href="http://yoursite.com/2019/09/18/CSS定位/">
 
@@ -325,7 +344,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在CSS中,position属性用于定义元素的定位模式，语法为<code>选择器{position: 属性值}</code><br>position属性的常用值：</p>
+        <p>在CSS中,position属性用于定义元素的定位模式，语法为<code>选择器{position: 属性值}</code><br>position属性的常用值：</p><a id="more"></a>
 <img src="http://pxx9k2vy6.bkt.clouddn.com/%E5%AE%9A%E4%BD%8D%E5%B1%9E%E6%80%A7.png">
 
 
@@ -654,7 +673,14 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+  本站访客数:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+
 <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
