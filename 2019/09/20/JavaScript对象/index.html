@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="面向过程：凡事都要亲力亲为，每件事的具体过程都要知道，注重的是过程。">
+<meta name="keywords" content="对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript的一些基础知识对象以及内置对象的常用方法">
+<meta property="og:url" content="http://yoursite.com/2019/09/20/JavaScript对象/index.html">
+<meta property="og:site_name" content="Emmroll&#39;s Blog">
+<meta property="og:description" content="面向过程：凡事都要亲力亲为，每件事的具体过程都要知道，注重的是过程。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-24T13:45:56.171Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript的一些基础知识对象以及内置对象的常用方法">
+<meta name="twitter:description" content="面向过程：凡事都要亲力亲为，每件事的具体过程都要知道，注重的是过程。">
+  <link rel="canonical" href="http://yoursite.com/2019/09/20/JavaScript对象/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>JavaScript的一些基础知识对象以及内置对象的常用方法 | Emmroll's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Emmroll's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">星光不问赶路人，时光不负有心人</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-schedule">
+      
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-sitemap">
+      
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-commonweal">
+      
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/20/JavaScript对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="孙彰冰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Emmroll's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">JavaScript的一些基础知识对象以及内置对象的常用方法
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-20 11:26:46" itemprop="dateCreated datePublished" datetime="2019-09-20T11:26:46+08:00">2019-09-20</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-24 21:45:56" itemprop="dateModified" datetime="2019-09-24T21:45:56+08:00">2019-09-24</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <ul>
+<li>面向过程：凡事都要亲力亲为，每件事的具体过程都要知道，注重的是过程。</li>
+</ul><a id="more"></a>
+<ul>
+<li>面向对象：根据需求找对象，所有的事都用对象来做，注重的是结果。</li>
+</ul>
+<p><strong>面向对象的特性：</strong>封装，继承，多态（抽象性）</p>
+<pre><code>js不是面向对象的语言，但是可以模拟面向对象的思想。
+js是一门基于对象的语言。
+对象：有特征和行为。（特征-&gt;属性，行为-&gt;方法。)
+在当前这个对象的方法中是可以访问当前这个对象的属性的值 this代表当前对象</code></pre><p>###</p>
+<p>###创建对象的方法（三种方式）</p>
+<p>一、 调用系统的构造函数创建对象</p>
+<pre><code>    var 变量名 = new Object();//Object是系统的构造函数
+
+例子：
+
+    var obj=new Object();
+    //添加属性：对象.属性名=值
+    obj.name=&quot;小明&quot;;
+    obj.age=18;
+    obj.sex=&quot;男&quot;;
+    //添加方法：对象.方法名=函数
+    obj.eat=function(){console.log(&quot;今天吃了蛋炒饭&quot;)};
+    obj.play=function(){console.log(&quot;今天玩了过家家&quot;)};
+    //使用
+    console.log(obj.name);
+    console.log(obj.sex);
+    console.log(obj.age);
+    obj.eat();
+    obj.play();</code></pre><p>二、 自定义构造函数创建对象（结合第一种和需求通过工厂模式创建对象）</p>
+<p>首先，了解一下工厂模式创建对象：如何一次性创建多个对象？答：把创建对象的代码封装在一个函数中，多次使用多次调用。</p>
+<pre><code>function createObject(name,age){
+var obj=new Object();//创建对象
+obj.name=name;
+obj.age=age;
+obj.sayHi=function(){console.log(&quot;hello，我叫&quot;+this.name+&quot;今年&quot;+this.age+&quot;岁&quot;);
+};
+return obj;
+}
+//创建人的对象
+var per1=createObject(“小芳”,30);
+per1.sayHi();
+//创建第二个人的对象
+var per2=createObject(&quot;小丽&quot;,40);
+per2.sayHi()</code></pre><p>下面就是自定义构造函数创建对象的方法：</p>
+<p> 例子：</p>
+<pre><code>//先定义一个构造函数
+function Person(name,age){
+this.name=name;
+this.age=age;
+this.sayHi=function(){console.log(&quot;我是&quot;+this.name+&quot;年龄&quot;+this.age);
+};
+//创建对象---实例化一个对象并初始化
+var obj=new Person(&quot;小明&quot;,18);
+console.log(obj.name);
+console.log(obj.age);
+obj.sayHi();
+var obj2....</code></pre><p>知识点：var obj=new Person(“小明”,18);这行代码执行的时候，发生了四件事（系统做的）</p>
+<ul>
+<li>在内存中开辟空间申请（一块空闲的空间），存储创建新的对象</li>
+<li>把this设置为当前的对象</li>
+<li>设置对象的属性和方法的值</li>
+<li>把this这个对象返回</li>
+</ul>
+<p>三、字面量的方式创建对象</p>
+<pre><code>var obj2={
+name: &quot;小明&quot;,
+age: 20,
+sayHi: function(){
+console.log(&quot;我是&quot;+this.name);
+}
+};
+obj2.sayHi();</code></pre><p>字面量构造函数的缺陷：一次性的对象</p>
+<h3 id="关于对象的一些知识点"><a href="#关于对象的一些知识点" class="headerlink" title="关于对象的一些知识点"></a>关于对象的一些知识点</h3><ul>
+<li><p>如何获取该变量（对象）是不是属于什么类型的？</p>
+<pre><code>语法：变量 instanceof 类型的名字 true--是的 false--不是的</code></pre></li>
+</ul>
+<ul>
+<li><p>调用系统构造函数创建对象不能分辨出对象到底是属于什么类型的(都是Object)</p>
+</li>
+<li><p>函数和构造函数的区别，名字是大写是构造函数，写构造函数是为了创建对象，普通函数是为了调用</p>
+</li>
+<li><p>对象占有两块空间，一块是堆，一块是栈。栈里存的是该对象所在空间的地址（引用）</p>
+</li>
+<li><p>访问对象中的属性，除了点方法，还有别的</p>
+<pre><code>obj.name=&quot;佐助&quot;=====obj[&quot;name&quot;]=&quot;佐助&quot;
+obj.play()====obj[&quot;play&quot;]</code></pre></li>
+</ul>
+<h3 id="JSON数据的格式以及遍历"><a href="#JSON数据的格式以及遍历" class="headerlink" title="JSON数据的格式以及遍历"></a>JSON数据的格式以及遍历</h3><p>JSON格式的数据：一般是成对的，是键值对</p>
+<p>json也是一个对象，数据都是成对的，一般json格式的数据无论是键还是值都是用双引号括起来的。</p>
+<pre><code>var json={
+&quot;name&quot;:&quot;小明&quot;,
+&quot;age&quot;:&quot;10&quot;,
+&quot;sex&quot;:&quot;男&quot;
+};</code></pre><p><strong>遍历对象，是不能通过for循环遍历</strong></p>
+<p>将json对象中的数据一个一个的遍历出来：</p>
+<pre><code>for(var key in json){console.log(key);//json对象中的属性的名字
+console.log(json.key);}</code></pre><h3 id="js学习中的三种对象"><a href="#js学习中的三种对象" class="headerlink" title="js学习中的三种对象"></a>js学习中的三种对象</h3><p><strong>1.内置对象（js系统自带的对象）</strong></p>
+<p><strong>2.自定义对象（自己定义的构造函数创建的对象）</strong></p>
+<p><strong>3.浏览器对象（BOM的时候讲）</strong></p>
+<p>####内置对象（Math,Date,String,Array,Object）</p>
+<p>MDN—-在线的帮助文档</p>
+<ul>
+<li><p>Math对象</p>
+</li>
+<li><p> Math.abs(值)—-绝对值</p>
+<p> Math.ceil(值)—向上取整</p>
+<p> Math.floor(值)—向下取整</p>
+<p> Math.fround(值)—变成小数</p>
+<p> Math.max(值，值,…)—-找出最大值</p>
+<p> Math.pow(x,y)—得出x的y次方</p>
+<p> Math.sqrt(值)—找出一个数的平方根</p>
+<p> Math.random(值)–得到的是0到1之间的随机数</p>
+<p> parseInt(Math.random()*5)+1)—得到的是1-5之间的随机数</p>
+<p> Math.abs(null);//0</p>
+<p> Math.abs(“string”);//NaN</p>
+</li>
+<li><p>Date对象</p>
+</li>
+<li><p>  var dt = new Date();//当前服务器的时间</p>
+<p>  var dt = new Date(“2019.09.24”);//传入的时间（传入是字符串类型，得到时间类型）</p>
+<p>  var dt = Date.now();//从1970到现在的毫秒数</p>
+<p>  var dt = new Date();</p>
+<p>  获取年份：dt.getFullYear()</p>
+<p>  获取月份: dt.getMonth();—是从0开始的，真实的月份要加1</p>
+<p>  获取日期：dt.getDate();</p>
+<p>  获取小时：dt.getHours();</p>
+<p>  获取分钟：dt.getMinutes();</p>
+<p>  获取秒： dt.getSeconds();</p>
+<p>  获取星期：dt.getDays();—从0开始的</p>
+</li>
+<li><p>String对象</p>
+</li>
+<li><p>  string -&gt;字符串类型–基本类型</p>
+<p>  String -&gt;字符串类型–引用类型</p>
+<p>  小写的string是一种数据类型</p>
+<p>  大写的String是对象</p>
+<p>  str=”hello”;—可以看成一个数组，所以可以通过for循环进行遍历。</p>
+<p>  字符串不可变性：字符串的值是不能改变的<br>  如：<br>  var str=”hello”<br>  str[1]=”w”;<br>  console.log(str);//hello</p>
+<p>  字符串常用属性<br>  .length–字符串的长度</p>
+<p>  .charAt()–返回值是指定索引位置的字符串，超出索引返回空字符串</p>
+<p>  .fromCharCode(数字值，可以是多个参数)，返回是ASCII码对应的值。</p>
+<p>  .concat(字符串1,字符串2,…);返回的是新的字符串</p>
+<p>  .indexOf(要找的字符串,[从某个位置开始找]);得到要要的字符串的索引值，没有就返回-1</p>
+<p>  .lastIndexOf(要找的字符串);从后向前找，得到索引值，没有的话返回-1</p>
+<p>  .replace(“原来的字符串”，”新的字符串”);</p>
+<p>  字符串常用方法<br>  .slice(开始的索引,结束的索引);从开始索引的位置开始提取，到索引为结束索引的前一个结束，没由结束的那个索引，并返回提取后的字符串，原字符串不变（不可变性）</p>
+<p>  .split(“要干掉的字符串，切割后留下来的个数”);切割字符串</p>
+<p>  .substr(开始的位置，个数);截取字符串，返回的是截取后的新的字符串</p>
+<p>  .substring(开始索引，结束索引)；截取字符串，返回截取后字符串，不包含结束索引的</p>
+<p>  .toLocaleLowerCase()转小写</p>
+<p>  .toLowerCase()转小写</p>
+<p>  .toLocaleUpperCase()转大写</p>
+<p>  .toUpperCase()转大写</p>
+<p>  .trim();干掉字符串两端的空格</p>
+</li>
+<li><p>Array对象</p>
+</li>
+<li><p>  Array.isAray(对象);判断这个对象是不是数组</p>
+<p>  instanceof关键字</p>
+<p>  .concat(数组，数组，…)组合成一个新数组</p>
+<p>  .every(函数);返回值是布尔类型，函数作为参数使用，函数中有三个参数，第一个参数是元素的值，第二个参数是索引值，第三个参数是原来的数组（没用）</p>
+<p>  如果这个数组中的每个元素的值都符合条件，最后才返回的是true。</p>
+<p>  .filter(函数);返回的是数组中每一个元素都符合的元素，组成一个新数组。</p>
+<p>  .push(值);把值追加到数组中，返回值是追加数据后的数组</p>
+<p>  .pop(值);删除数组中最后的元素，返回值就是删除的元素的值。</p>
+<p>  .unshift();把值追加到数组的前面，返回值是插入数据后的数组长度</p>
+<p>  .shift();删除数组的第一个元素，返回值就是删除的这个值</p>
+<p>  .forEach(函数);遍历数组用，相当于for循环</p>
+<p>  .indexOf(元素值);返回的是索引，没有则是-1</p>
+<p>  .join(“字符串”);返回的是一个字符串</p>
+<p>  .map(函数);数组中的每个元素都要执行这个函数，把执行后的结果全部放在一个数组中</p>
+<p>  .reverse();反转数组</p>
+<p>  .sort();排序的，可能不稳定，如果不稳定，请写MDN固定代码</p>
+<p>  .slice(开始的索引，结束的索引)把截取后数组值放入新数组，但是不包含结束索引元素的值</p>
+<p>  .splice(开始的位置，要删除的个数，替换的元素的值);一般是用于删除数组中的元素，或者是替换元素，或者是插入元素</p>
+</li>
+</ul>
+<p><strong>知识点</strong>：</p>
+<p>实例对象：通过构造函数创建出来的，实例化的对象</p>
+<p>静态对象：不需要创建，直接就是一个对象，方法（静态方法）直接通过这个对象名字调用</p>
+<p>实例方法必须通过实例对象调用</p>
+<p>静态方法必须通过大写的对象调用</p>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/对象/" rel="tag"># 对象</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/20/JavaScript函数/" rel="next" title="JavaScript中的函数基础">
+                  <i class="fa fa-chevron-left"></i> JavaScript中的函数基础
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86
+ src="//music.163.com/outchain/player?type=2&id=25706282&auto=1&height=66"></iframe>
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于对象的一些知识点"><span class="nav-number">1.</span> <span class="nav-text">关于对象的一些知识点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON数据的格式以及遍历"><span class="nav-number">2.</span> <span class="nav-text">JSON数据的格式以及遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js学习中的三种对象"><span class="nav-number">3.</span> <span class="nav-text">js学习中的三种对象</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/uploads/avatar.jpg"
+      alt="孙彰冰">
+  <p class="site-author-name" itemprop="name">孙彰冰</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span>
+        
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/emmroll" title="GitHub &rarr; https://github.com/emmroll" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+  本站访客数:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">孙彰冰</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

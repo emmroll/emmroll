@@ -74,23 +74,19 @@
   };
 </script>
 
-  <meta name="description" content="CSS的定位机制有三种：标准流、浮动和定位">
-<meta name="keywords" content="CSS浮动">
+  <meta name="description" content="###函数：把一坨重复的代码封装，在需要的时候直接调用即可。">
+<meta name="keywords" content="函数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS浮动">
-<meta property="og:url" content="http://yoursite.com/2019/09/20/CSS浮动/index.html">
+<meta property="og:title" content="JavaScript中的函数基础">
+<meta property="og:url" content="http://yoursite.com/2019/09/20/JavaScript函数/index.html">
 <meta property="og:site_name" content="Emmroll&#39;s Blog">
-<meta property="og:description" content="CSS的定位机制有三种：标准流、浮动和定位">
+<meta property="og:description" content="###函数：把一坨重复的代码封装，在需要的时候直接调用即可。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://pxx9k2vy6.bkt.clouddn.com/%E6%B5%AE%E5%8A%A8%E5%B1%9E%E6%80%A7%E5%80%BC.png">
-<meta property="og:image" content="http://pxx9k2vy6.bkt.clouddn.com/%E6%B5%AE%E5%8A%A8%E4%B8%8D%E8%B7%A8%E8%B6%8A%E5%86%85%E8%BE%B9%E8%B7%9D.png">
-<meta property="og:image" content="http://pxx9k2vy6.bkt.clouddn.com/%E6%B5%AE%E5%8A%A8%E7%89%B9%E6%80%A7%E4%B8%89-%E6%A8%A1%E5%BC%8F%E8%BD%AC%E6%8D%A2.png">
-<meta property="og:updated_time" content="2019-09-20T03:21:26.370Z">
+<meta property="og:updated_time" content="2019-09-24T13:46:10.866Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS浮动">
-<meta name="twitter:description" content="CSS的定位机制有三种：标准流、浮动和定位">
-<meta name="twitter:image" content="http://pxx9k2vy6.bkt.clouddn.com/%E6%B5%AE%E5%8A%A8%E5%B1%9E%E6%80%A7%E5%80%BC.png">
-  <link rel="canonical" href="http://yoursite.com/2019/09/20/CSS浮动/">
+<meta name="twitter:title" content="JavaScript中的函数基础">
+<meta name="twitter:description" content="###函数：把一坨重复的代码封装，在需要的时候直接调用即可。">
+  <link rel="canonical" href="http://yoursite.com/2019/09/20/JavaScript函数/">
 
 
 <script id="page-configurations">
@@ -104,7 +100,7 @@
   };
 </script>
 
-  <title>CSS浮动 | Emmroll's Blog</title>
+  <title>JavaScript中的函数基础 | Emmroll's Blog</title>
   
 
 
@@ -287,7 +283,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/20/CSS浮动/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/20/JavaScript函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="孙彰冰">
@@ -299,7 +295,7 @@
       <meta itemprop="name" content="Emmroll's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">CSS浮动
+        <h1 class="post-title" itemprop="name headline">JavaScript中的函数基础
 
           
         </h1>
@@ -315,11 +311,19 @@
                 
               
 
-              <time title="创建时间：2019-09-20 09:48:24 / 修改时间：11:21:26" itemprop="dateCreated datePublished" datetime="2019-09-20T09:48:24+08:00">2019-09-20</time>
+              <time title="创建时间：2019-09-20 11:26:36" itemprop="dateCreated datePublished" datetime="2019-09-20T11:26:36+08:00">2019-09-20</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-24 21:46:10" itemprop="dateModified" datetime="2019-09-24T21:46:10+08:00">2019-09-24</time>
+              </span>
             
           
 
@@ -334,61 +338,110 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="CSS的定位机制有三种：标准流、浮动和定位"><a href="#CSS的定位机制有三种：标准流、浮动和定位" class="headerlink" title="CSS的定位机制有三种：标准流、浮动和定位"></a>CSS的定位机制有三种：标准流、浮动和定位</h4><a id="more"></a><p><strong>标准流：</strong>一个网页内标签元素从上至下，从左至右顺序排列，块级元素独占一行，行内元素按顺序依次前后排列，这种大前提的布局排列之下绝对不会出现例外的情况叫做标准流布局。</p>
-<p><strong>元素的浮动：</strong> 是指设置了浮动属性的元素会脱离标准流的控制，移动到父元素中指定位置的过程。在CSS中，通过float定义浮动。语法格式为：<code>选择器{float: 属性值;}</code></p>
-<p>属性值有：</p>
-<img src="http://pxx9k2vy6.bkt.clouddn.com/%E6%B5%AE%E5%8A%A8%E5%B1%9E%E6%80%A7%E5%80%BC.png">
+        <p>###函数：把一坨重复的代码封装，在需要的时候直接调用即可。</p><a id="more"></a>
+<ul>
+<li><p>命名函数：函数有名字 <code>function f1(){}</code></p>
+</li>
+<li><p>匿名函数：函数没有名字 <code>function (){}</code></p>
+</li>
+</ul>
+<h4 id="函数知识点"><a href="#函数知识点" class="headerlink" title="函数知识点"></a>函数知识点</h4><ul>
+<li><p><strong>函数的作用：</strong>代码的重用</p>
+</li>
+<li><p><strong>函数的用法：</strong>函数需要先定义，然后才能使用</p>
+</li>
+<li><p><strong>函数名字定义规则：</strong>遵循驼峰命名法</p>
+</li>
+<li><p><strong>函数参数：</strong>在函数定义的时候，函数名字后面的小括号里的变量就是参数，目的是函数在调用的时候，用用户传进来的值操作。</p>
+</li>
+<li><p>此时函数定义的时候后面的小括号里面的变量就叫参数，写了两个变量，就有两个参数。</p>
+</li>
+</ul>
+<pre><code>**形参：**函数在定义的时候小括号里的变量叫形参
 
-<p><strong>浮动的目的：</strong>让多个块级元素在一行显示，方便布局。</p>
-<p><strong>浮动的特性：</strong>浮动脱离标准流（脱标），不占位置，会影响标准流。</p>
-<h5 id="1-浮动首先创建包含块的概念，就是说，浮动的元素总是找它最近的父元素对齐，但是不会超过内边距的范围。"><a href="#1-浮动首先创建包含块的概念，就是说，浮动的元素总是找它最近的父元素对齐，但是不会超过内边距的范围。" class="headerlink" title="1.浮动首先创建包含块的概念，就是说，浮动的元素总是找它最近的父元素对齐，但是不会超过内边距的范围。"></a>1.浮动首先创建包含块的概念，就是说，浮动的元素总是找它最近的父元素对齐，但是不会超过内边距的范围。</h5><p>示例代码：</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-    &lt;style&gt;
-        .father {
-            width: 600px;
-            height: 600px;
-            background-color: skyblue;
-            padding: 100px;
+**实参：**函数在调用的时候，小括号里传入的值叫实参，实参可以是变量也可以是数字。
 
+**在函数调用的时候，按照提示的方式，给变量赋值---就叫传值，就把这个值传到了变量（参数）中。**</code></pre><ul>
+<li><p><strong>函数的返回值：</strong>在函数内部有return关键字，并且在关键字后面有内容，这个内容被返回了。<br>当函数调用之后，需要这个返回值，那么就定义变量接收，即可（如果一个函数中有return，那么这个函数就有返回值。）</p>
+</li>
+<li><p>函数一旦重名，后面的会把前面的函数覆盖</p>
+</li>
+<li><p>一个函数最好就只有单一的功能</p>
+</li>
+<li><p>输出函数名—代表输出这个函数的代码</p>
+</li>
+<li><p>arguments对象伪数组，使用arguments可以获取传入的每个参数的值</p>
+<p>   function f1(){<br>   //arguments—当做数组使用（伪数组）<br>   var sum=0;<br>   for(var i=0;i&lt;arguments.length;i++){<br>   sum+=arguments[i];<br>   }<br>   return sum;<br>   }<br>   console.log(f1(10,20,30,40));</p>
+</li>
+<li><p>如何获取某个变量的类型：typeof</p>
+</li>
+</ul>
+<p><strong>函数是有数据类型的，数据类型是function类型的。</strong></p>
+<h4 id="函数的其他的定义方式："><a href="#函数的其他的定义方式：" class="headerlink" title="函数的其他的定义方式："></a>函数的其他的定义方式：</h4><p><strong>函数表达式：</strong></p>
+<p>把一个函数给一个变量，此时形成了函数表达式</p>
+<p>用法：</p>
+<pre><code>var 变量=匿名函数;
+var f1=function(){};</code></pre><p>如果是函数表达式，那么此时前面的变量中存储的就是一个函数，而这个变量就相当于一个函数，就可以直接加小括号调用了；</p>
+<pre><code>f1();</code></pre><p><strong>注意：函数表达式的后面，赋值结束后，要加分号。</strong></p>
+<p>函数的自调用，没有名字，声明的同时，直接调用（一次性的—–只能用一次）</p>
+<pre><code>(function(){console.log(&quot;哈哈哈哈&quot;);})()</code></pre><h4 id="函数的使用"><a href="#函数的使用" class="headerlink" title="函数的使用"></a>函数的使用</h4><ol>
+<li>函数作为参数使用，如果一个函数作为参数，那么我们说这个参数（函数）可以叫回调函数。<br>只要是看到一个函数作为参数使用，就可以把这个函数叫做回调函数。</li>
+</ol>
+<p><strong>函数声明,fn是变量，是参数</strong></p>
+<pre><code>   function f1(fn){
+   fn();//函数调用---说明fn这个变量中存储的是一个函数
+   }
+function f2(){
+   console.log(&quot;这也可以&quot;);
+   }
+   f1(f2)`</code></pre><p>2、 函数作为返回值使用</p>
+<pre><code>function f1(){
+return function(){
+console.log(&quot;这是一个函数&quot;);
+        };
+    }
+    var ff=f1();//调用</code></pre><p>ff就是一个函数，直接调用<code>ff()</code></p>
+<p><strong>作用域：使用范围</strong></p>
+<ul>
+<li><p><strong>全局变量：</strong>声明的变量是使用var声明的，这个变量就是全局变量，全局变量可以全局在页面的任何位置使用。目前除了函数之外，其他的任何位置定义的变量都是全局变量。</p>
+</li>
+<li><p>局部变量：在函数内部定义的变量，是局部变量，外面不能使用。</p>
+</li>
+<li><p>全局变量，如果页面不关闭，就不会关闭，就会占空间，消耗内存。</p>
+</li>
+<li><p>全局作用域：全局变量的使用范围</p>
+</li>
+<li><p>局部作用域：局部变量的使用范围</p>
+</li>
+<li><p>块级作用域：一对大括号可以看成是一块，在这块区域中定义的变量，只能在这个区域使用，但是在js中在这个块级作用域定义的变量，外面也能使用。。</p>
+</li>
+</ul>
+<p><em>说明:js没有块级作用域，只有函数除外</em></p>
+<p><strong>隐式全局变量：</strong>声明的变量，没有var，就叫隐式全局变量。</p>
+<p>全局变量是不能被删除的，但是隐式全局变量是可以被删除的。</p>
+<p>定义变量使用var时不会被删除的，没有var是可以被删除的。</p>
+<pre><code>function f1(){
+    number=1000;//隐式全局变量
+}
+f1();
+console.log(number);</code></pre><p>**<br>作用域链：**</p>
+<pre><code>var num=10;
+function f1(){
+    var num=20;
+    function f2(){
+        var num=30;
+        function f3(){
+            var num=50;
+            console.log(num);
+            }
+            f3();
         }
-        .son {
-            width: 200px;
-            height: 200px;
-            background-color: deeppink;
-            float: right;
+        f2();
         }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class=&quot;father&quot;&gt;
-        &lt;div class=&quot;son&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre><p>结果显示：<br><img src="http://pxx9k2vy6.bkt.clouddn.com/%E6%B5%AE%E5%8A%A8%E4%B8%8D%E8%B7%A8%E8%B6%8A%E5%86%85%E8%BE%B9%E8%B7%9D.png"></p>
-<p>#####2.浮动的元素排列位置：跟上一个元素（块级）有关系，如果上一个元素有浮动，则A元素顶部会和上一个元素的顶部对齐，如果上一个元素是标准流，则A元素的顶部会和上一个元素的底部对齐。<br>注意：一个父盒子里面的子盒子，如果其中的一个子级有浮动，则其他子级都需要浮动，这样才能一行对齐显示。</p>
-<p>#####3、模式转换（浮动可以让元素默认转换为行内块）<br>元素添加浮动之后，元素会具有行内块元素的特性，元素的大小会取决于定义的大小或者默认的内容多少。(妙用:如果已经给行内元素添加了浮动，此时不需要转换了这个元素也可以有宽高)<br>例子：</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-    &lt;style&gt;
-        div {
-            height: 100px;
-            background-color: skyblue;
-            float: left;
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div&gt;你好，浮动&lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre><p>效果：<br><img src="http://pxx9k2vy6.bkt.clouddn.com/%E6%B5%AE%E5%8A%A8%E7%89%B9%E6%80%A7%E4%B8%89-%E6%A8%A1%E5%BC%8F%E8%BD%AC%E6%8D%A2.png"></p>
-
+        f1();</code></pre><p><strong>预解析：</strong>提前解析代码</p>
+<p><strong>预解析的过程：</strong><br>1.把变量的声明提升到当前作用域的最前面，只提升声明，不会提升赋值；<br>2.把函数的声明提升到当前作用域的最前面，只会提升声明，不会提升调用<br>3.先提升var  再提升function<br>预解析中，变量的提升，只会在当前的作用域中提升，提升到当前的作用域的最上面<br>函数中的变量只会提前到函数的作用域的最前面，不会出去。<br>预解析会分段（多对的script标签中函数重名，预解析的时候不会中途）</p>
+<pre><code>console.log(num);//没有报错
+var num=10;</code></pre>
     </div>
 
     
@@ -413,7 +466,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/CSS浮动/" rel="tag"># CSS浮动</a>
+              <a href="/tags/函数/" rel="tag"># 函数</a>
             
           </div>
         
@@ -423,8 +476,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/18/CSS定位/" rel="next" title="CSS定位">
-                  <i class="fa fa-chevron-left"></i> CSS定位
+                <a href="/2019/09/20/JavaScript数组/" rel="next" title="JavaScript数组基础">
+                  <i class="fa fa-chevron-left"></i> JavaScript数组基础
                 </a>
               
             </div>
@@ -433,8 +486,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/09/20/JavaScript数组/" rel="prev" title="JavaScript数组基础">
-                  JavaScript数组基础 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/09/20/JavaScript对象/" rel="prev" title="JavaScript的一些基础知识对象以及内置对象的常用方法">
+                  JavaScript的一些基础知识对象以及内置对象的常用方法 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -485,7 +538,7 @@
  src="//music.163.com/outchain/player?type=2&id=25706282&auto=1&height=66"></iframe>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS的定位机制有三种：标准流、浮动和定位"><span class="nav-number">1.</span> <span class="nav-text">CSS的定位机制有三种：标准流、浮动和定位</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-浮动首先创建包含块的概念，就是说，浮动的元素总是找它最近的父元素对齐，但是不会超过内边距的范围。"><span class="nav-number">1.1.</span> <span class="nav-text">1.浮动首先创建包含块的概念，就是说，浮动的元素总是找它最近的父元素对齐，但是不会超过内边距的范围。</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数知识点"><span class="nav-number">1.</span> <span class="nav-text">函数知识点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数的其他的定义方式："><span class="nav-number">2.</span> <span class="nav-text">函数的其他的定义方式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数的使用"><span class="nav-number">3.</span> <span class="nav-text">函数的使用</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
